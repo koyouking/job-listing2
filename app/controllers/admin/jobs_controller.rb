@@ -7,7 +7,7 @@ class Admin::JobsController < ApplicationController
   end
 
   def index
-    @jobs = Job.all
+    @jobs = Job.all.order("created_at DESC")
   end
 
   def new
@@ -45,7 +45,7 @@ class Admin::JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :description,
-    :wage_upper_bound, :wage_lower_bound,:contact_email)
+    :wage_upper_bound, :wage_lower_bound,:contact_email, :is_hidden)
   end
 
 end
