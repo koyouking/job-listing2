@@ -9,7 +9,7 @@ class ResumesController < ApplicationController
     @job = Job.find(params[:job_id])
     @resume = Resume.new(resume_params)
     @resume.job = @job
-    @resume.uer = current_user
+    @resume.user = current_user
 
     if @resume.save
       flash[:notice] = "成功投递简历"
